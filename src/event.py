@@ -22,6 +22,7 @@ class Event:
         """
 
         self.title = title
+        self.snippet = snippet
         self.date = date
         self.snippet = snippet
         self.link = link

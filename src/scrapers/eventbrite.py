@@ -1,7 +1,7 @@
 """ Scraping from eventbrite.
 
 """
-from datetime import date, datetime
+from datetime import date
 import calendar
 
 from src.attributes import Attrs
@@ -24,11 +24,18 @@ class EventBrite(EventSource):
         See EventSource._convert_date
         """
 
-        event_datetime = datetime.strptime(date_string, "%a, %b %d, %I:%M%p") #Doesn't know year in case of EventBrite
+        sliced_date = date_string.split(", ")
 
-        event_datetime = event_datetime.replace(year = self.toolkit.get_year(event_datetime.month))
+        try:
+            month = (self.toolkit.date_to_int(sliced_date[1].split(" ")[0], calendar_type=calendar.month_abbr))
+            day = int(sliced_date[1].split(" ")[1])
+        except ValueError:
+            print("ERROR:   Failed to create date object. Conversion to int failed.")
+            return date(0, 0, 0)
 
-        return event_datetime.date()
+        year = self.toolkit.get_year(month)
+
+        return date(year, month, day)
 
     def get_events(self):
         """

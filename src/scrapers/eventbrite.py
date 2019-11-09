@@ -4,6 +4,7 @@
 from datetime import date
 import calendar
 
+from src.attributes import Attrs
 from src.event import Event
 from src.eventScopes import EventScope
 from src.eventSource import EventSource
@@ -46,13 +47,13 @@ class EventBrite(EventSource):
         title_class = "eds-is-hidden-accessible"
         link_class = "eds-media-card-content__action-link"
 
-        entries = self.html.find_all(name=Tags.DIV, attrs={self.CLASS: entries_class})
+        entries = self.html.find_all(name=Tags.DIV, attrs={Attrs.CLASS: entries_class})
 
         for entry in entries:
             event = Event.eventbrite(
-                title=entry.find(name=Tags.DIV, attrs={self.CLASS: title_class}).contents[0],
-                date=self._convert_date(entry.find(name=Tags.DIV, attrs={self.CLASS: date_class}).contents[0]),
-                link=entry.find(name=Tags.A, attrs={self.CLASS: link_class}).get("href"),
+                title=entry.find(name=Tags.DIV, attrs={Attrs.CLASS: title_class}).contents[0],
+                date=self._convert_date(entry.find(name=Tags.DIV, attrs={Attrs.CLASS: date_class}).contents[0]),
+                link=entry.find(name=Tags.A, attrs={Attrs.CLASS: link_class}).get(Attrs.HREF),
                 scope=EventScope.NATIONAL)
             self.events.append(event)
 

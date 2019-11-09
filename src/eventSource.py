@@ -24,7 +24,6 @@ class EventSource(ABC):
         self.html = BeautifulSoup(self.page.content, "html.parser")
         self.events = list()
         self.toolkit = DateToolkit()
-        self.CLASS = "class"
 
     @abstractmethod
     def _convert_date(self, date_string):

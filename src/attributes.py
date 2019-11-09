@@ -6,3 +6,4 @@ class Attrs:
 
     CLASS = "class"
     ID = "id"
+    HREF = "href"

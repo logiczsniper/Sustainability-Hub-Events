@@ -1,0 +1,29 @@
+A short 'how to' for other developers working on this project which explains the usage and steps to be taken to
+implement another web scraper (for another source).
+
+The purpose of the classes, toolkit and constants is to make implementing another source easier, and to make the code
+very uniform, despite the fact that there are multiple developers.
+
+You can use EventBrite as an example for the following steps.
+
+1) Add the url to the constant urls found in Urls class.
+2) Create subclass of EventSource.
+    A) Make the file in src/scrapers
+    B) Create class, override abstract methods.
+    C) Before you override get_events, head to the source and figure out which of the arguments to create an Event
+        can you scrape from just that url (do not get a link and scrape from that too). See Event.eventbrite class
+        method as an example. Along the same lines, create class method in Event which eliminates parameters that cant
+        be provided.
+    D) Any methods (that are abstract, can be used for other instances) that are used to convert the raw date to a date
+        object should be made into a staticmethod in the DateToolkit.
+    E) Any constants that you use (provided not already in one of the constants classes) should be added to their
+        respective classes. E.g. if you use a different HTML tag to scrape something, add it to tags.Tags
+3) Test! We can write unit tests at the end (because I am horribly lazy) but for now head over to main.py and you can
+    write something along the lines of:
+
+    event_source = YourSubClass(url=Urls.YOUR-URL)
+
+    print(event_source.get_events())
+
+If you have any queries please talk to me! Whats app, email work fine but preferably in person.
+Thanks!

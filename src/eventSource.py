@@ -2,12 +2,15 @@
 
 All event sources should be represented using this class.
 """
+from abc import ABC, abstractmethod
 
 from requests import get
 from bs4 import BeautifulSoup
 
+from src.dateToolkit import DateToolkit
 
-class EventSource:
+
+class EventSource(ABC):
 
     def __init__(self, url):
         """
@@ -18,5 +21,27 @@ class EventSource:
 
         self.url = url
         self.page = get(url)
-        self.html = BeautifulSoup(self.page.content, 'html5lib')
-        # self.events =
+        self.html = BeautifulSoup(self.page.content, "html.parser")
+        self.events = list()
+        self.toolkit = DateToolkit()
+        self.CLASS = "class"
+
+    @abstractmethod
+    def _convert_date(self, date_string):
+        """
+        Every EventSource MUST override this method.
+        :param date_string: the date as scraped from this particular EventSource.
+        :type: str
+        :return: the datetime object equivalent of the date string
+        :rtype: datetime.date
+        """
+        pass
+
+    @abstractmethod
+    def get_events(self):
+        """
+        Every EventSource MUST override this method.
+        :return: Event objects from the instance of EventSource.
+        :rtype: list
+        """
+        pass

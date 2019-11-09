@@ -14,7 +14,9 @@ from src.scrapers.eventbrite import EventBrite
 def main():
     event_source = EventBrite(url=Urls.EVENTBRITE)
 
-    print(event_source.get_events())
+    print("{:^85} | {:^20}\n{:85} | {:20}".format("Event Name", "Event Date", "", ""))
+    for event in event_source.get_events():
+    	print("{:^85} | {:^20}".format(event.title, event.date.isoformat()))
 
 
 if __name__ == '__main__':

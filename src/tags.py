@@ -6,3 +6,5 @@ class Tags:
 
     A = "a"
     DIV = "div"
+    P = "p"
+    H4 = "h4"

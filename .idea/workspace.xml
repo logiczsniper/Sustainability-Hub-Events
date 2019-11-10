@@ -5,8 +5,8 @@
       <change afterPath="$PROJECT_DIR$/Adding a new scraper" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/dateToolkit.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/scrapers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tags.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scrapers/nienvironmentlink.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Logan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Logan.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/attributes.py" afterDir="false" />
@@ -14,6 +14,8 @@
       <change beforePath="$PROJECT_DIR$/src/event.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/event.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eventSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventSource.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scrapers/eventbrite.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrapers/eventbrite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

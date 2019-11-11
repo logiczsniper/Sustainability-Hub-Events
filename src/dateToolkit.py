@@ -9,23 +9,6 @@ from datetime import datetime
 class DateToolkit:
 
     @staticmethod
-    def date_to_int(date, calendar_type):
-        """
-        Converts a day or month (full or short) to an int representation.
-        :param date: the full or short day or month name.
-        :type: str
-        :param calendar_type: one of the following ONLY: calendar.month_name
-                                                         calendar.month_abbr
-                                                         calendar.day_name
-                                                         calendar.day_abbr
-        :type: list
-        :return: the int equivalent of the input_month, upon failure returns 0
-        :rtype: int
-        """
-        mapping = {name: num for num, name in enumerate(calendar_type) if num}
-        return mapping[date]
-
-    @staticmethod
     def get_year(month):
         """
         If the month of the event is between January and current month, it is next year.

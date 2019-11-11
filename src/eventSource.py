@@ -12,18 +12,17 @@ from src.dateToolkit import DateToolkit
 
 class EventSource(ABC):
 
-    def __init__(self, url):
+    def __init__(self, page):
         """
         Construct an EventHub object
-        :param url: the url to the location's web page
+        :param page: the response to the get request
         :type: str
         """
 
-        self.url = url
-        self.page = get(url)
+        self.page = page
         self.html = BeautifulSoup(self.page.content, "html.parser")
-        self.events = list()
         self.toolkit = DateToolkit()
+        self.events = list()
 
     @abstractmethod
     def _convert_date(self, date_string):

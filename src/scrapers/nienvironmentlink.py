@@ -22,6 +22,7 @@ class NiEnvironmentLink(EventSource):
     def _convert_date(self, date_string):
         """
         See EventSource._convert_date
+        e.g. Sunday 3 November 2019
         """
 
         pass
@@ -37,7 +38,7 @@ class NiEnvironmentLink(EventSource):
         entries = self.html.find_all(name=Tags.DIV, attrs={Attrs.CLASS: entries_class})
 
         for entry in entries:
-            event = Event.eventbrite(
+            event = Event.nienvironmentlink(
                 title=entry.find(name=Tags.A).contents[0],
                 date=self._convert_date(entry.find(name=Tags.H4, attrs={Attrs.CLASS: date_class}).contents[0]),
                 link=entry.find(name=Tags.A).get(Attrs.HREF),

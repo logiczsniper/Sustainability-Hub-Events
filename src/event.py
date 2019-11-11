@@ -39,3 +39,14 @@ class Event:
         :rtype: Event
         """
         return Event(snippet="", **kwargs)
+
+    @classmethod
+    def nienvironmentlink(cls, **kwargs):
+        """
+        nienvironmentlink does not have a snippet on events.
+        :param kwargs: the other arguments to build the Event.
+        :type: dict
+        :return: the Event sourced from nienvironmentlink.
+        :rtype: Event
+        """
+        return Event(snippet="", **kwargs)

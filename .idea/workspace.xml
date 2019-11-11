@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aec33e9-3918-461f-b7a8-95878c770f36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Adding a new scraper" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dateToolkit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scrapers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scrapers/nienvironmentlink.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Logan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Logan.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fetcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/printer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/attributes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/days_months.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dateToolkit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dateToolkit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/event.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/event.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eventSource.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/eventSource.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scrapers/eventbrite.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrapers/eventbrite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scrapers/nienvironmentlink.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrapers/nienvironmentlink.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,17 +34,24 @@
   <component name="ProjectId" id="1THgZqR5eGL4tDwEjbXpM77IODA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings is-module-sdk="true">
+      <console-settings module-name="Week 10" is-module-sdk="true">
         <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="Week 10" />
       </console-settings>
     </option>
   </component>
+  <component name="PyDebuggerOptionsProvider">
+    <option name="mySupportGeventDebugging" value="true" />
+  </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lczer\Desktop\College\Assignments\CS in Practice\Week 10\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\lczer\Desktop\College\Assignments\CS in Practice\Week 10\src" />
     </key>
@@ -131,7 +135,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

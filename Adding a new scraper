@@ -21,9 +21,7 @@ You can use EventBrite as an example for the following steps.
 3) Test! We can write unit tests at the end (because I am horribly lazy) but for now head over to main.py and you can
     write something along the lines of:
 
-    event_source = YourSubClass(url=Urls.YOUR-URL)
-
-    print(event_source.get_events())
+    event_source = YourSubClass(page=results.get(Urls.URL_OF_SCRAPER.name))
 
 If you have any queries please talk to me! Whats app, email work fine but preferably in person.
 Thanks!

@@ -1,8 +1,9 @@
 """HTML tags to keep as constants for web scraping usage.
 """
+from enum import Enum
 
 
-class Tags:
+class Tags(Enum):
 
     A = "a"
     DIV = "div"

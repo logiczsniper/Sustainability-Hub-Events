@@ -23,6 +23,8 @@ class Fetcher:
             ...
         }
 
+        Use get() to get the HTML of a given page.
+
         :return: each page name with it's corresponding result.
         :rtype: dict
         """

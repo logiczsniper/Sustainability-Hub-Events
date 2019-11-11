@@ -13,12 +13,19 @@ from src.scrapers.nienvironmentlink import NiEnvironmentLink
 from src.scrapers.eventbrite import EventBrite
 from src.urls import Urls
 
+from time import time
+
 
 def main():
 
     # Get all HTML asynchronously.
+    t1 = time()
     fetcher = Fetcher()
     results = fetcher.get_results()
+    t2 = time()
+
+    # Temporary for development purposes.
+    print(f"Time taken: {t2-t1}")
 
     # TODO: finish nienvironmentlink scraper
     # event_source = NiEnvironmentLink(url=Urls.NIENVIRONMENTLINK)

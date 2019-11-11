@@ -4,10 +4,11 @@ All event sources should be represented using this class.
 """
 from abc import ABC, abstractmethod
 
-from requests import get
 from bs4 import BeautifulSoup
+from bs4.element import SoupStrainer
 
 from src.dateToolkit import DateToolkit
+from src.tags import Tags
 
 
 class EventSource(ABC):
@@ -19,8 +20,11 @@ class EventSource(ABC):
         :type: str
         """
 
+        # Only fetch tags that are used by scrapers.
+        strainer = SoupStrainer(name=[tag.value for tag in Tags])
+
         self.page = page
-        self.html = BeautifulSoup(self.page.content, "html.parser")
+        self.html = BeautifulSoup(self.page.content, "html.parser", parse_only=strainer)
         self.toolkit = DateToolkit()
         self.events = list()
 

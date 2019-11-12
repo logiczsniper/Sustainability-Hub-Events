@@ -1,7 +1,7 @@
 """ Scraping from nienvironmentlink.
 
 """
-from datetime import date
+from datetime import date, datetime
 import calendar
 
 from src.attributes import Attrs
@@ -24,8 +24,9 @@ class NiEnvironmentLink(EventSource):
         See EventSource._convert_date
         e.g. Sunday 3 November 2019
         """
+        event_date = datetime.strptime(date_string, "%A %d %B %Y")
 
-        pass
+        return event_date.date()
 
     def get_events(self):
         """
@@ -35,15 +36,16 @@ class NiEnvironmentLink(EventSource):
         entries_class = "eventBox"
         date_class = "date"
 
-        entries = self.html.find_all(name=Tags.DIV.value, attrs={Attrs.CLASS: entries_class})
+        entries = self.html.find_all(name=Tags.DIV.value, attrs={
+                                     Attrs.CLASS: entries_class})
 
         for entry in entries:
             event = Event.nienvironmentlink(
-                title=entry.find(name=Tags.A.value).contents[0],
-                date=self._convert_date(entry.find(name=Tags.H4.value, attrs={Attrs.CLASS: date_class}).contents[0]),
+                title=entry.find(Tags.H3.value).contents[0].text,
+                date=self._convert_date(entry.find(name=Tags.H4.value, attrs={
+                                        Attrs.CLASS: date_class}).contents[0]),
                 link=entry.find(name=Tags.A.value).get(Attrs.HREF),
                 scope=EventScope.NATIONAL)
             self.events.append(event)
-            print(event.title)
 
         return self.events

@@ -3,6 +3,9 @@
 Logan Czernel
 logan.czernel@ucdconnect.ie
 
+Nikita Skobelevs
+nikita.skobelevs@ucdconnect.ie
+
 TODO: FILL OUT SIMILAR DETAILS HERE (whoever else is working on this)
 
 7/11/2019
@@ -28,9 +31,10 @@ def main():
     print(f"Time taken: {t2-t1}")
 
     # TODO: finish nienvironmentlink scraper
-    # event_source = NiEnvironmentLink(url=Urls.NIENVIRONMENTLINK)
+    event_source = NiEnvironmentLink(
+        page=results.get(Urls.NIENVIRONMENTLINK.name))
 
-    event_source = EventBrite(page=results.get(Urls.EVENTBRITE.name))
+    # event_source = EventBrite(page=results.get(Urls.EVENTBRITE.name))
 
     # Print events (for simple testing purposes).
     printer = Printer()

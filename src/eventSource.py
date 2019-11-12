@@ -24,7 +24,8 @@ class EventSource(ABC):
         strainer = SoupStrainer(name=[tag.value for tag in Tags])
 
         self.page = page
-        self.html = BeautifulSoup(self.page.content, "html.parser", parse_only=strainer)
+        self.html = BeautifulSoup(
+            self.page.content, "html.parser", parse_only=strainer)
         self.toolkit = DateToolkit()
         self.events = list()
 

@@ -44,7 +44,8 @@ class NiEnvironmentLink(EventSource):
                 title=entry.find(Tags.H3.value).contents[0].text,
                 date=self._convert_date(entry.find(name=Tags.H4.value, attrs={
                                         Attrs.CLASS: date_class}).contents[0]),
-                link=entry.find(name=Tags.A.value).get(Attrs.HREF),
+                link="https://www.nienvironmentlink.org/" +
+                entry.find(name=Tags.A.value).get(Attrs.HREF),
                 scope=EventScope.NATIONAL)
             self.events.append(event)
 

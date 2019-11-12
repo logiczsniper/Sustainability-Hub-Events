@@ -33,12 +33,7 @@ def main():
     # TODO: check for places where exceptions may need to be handled.
     # TODO: write unit tests.
 
-    # TODO: finish nienvironmentlink scraper
-
     event_source = NiEnvironmentLink(page=results.get(Urls.NIENVIRONMENTLINK.name))
-
-    event_source = NiEnvironmentLink(
-        page=results.get(Urls.NIENVIRONMENTLINK.name))
 
     # event_source = EventBrite(page=results.get(Urls.EVENTBRITE.name))
 

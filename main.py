@@ -30,15 +30,14 @@ def main():
     # Temporary for development purposes.
     print(f"Time taken: {t2-t1}")
 
-    # TODO: finish nienvironmentlink scraper
-    event_source = NiEnvironmentLink(
-        page=results.get(Urls.NIENVIRONMENTLINK.name))
+    # event_source = NiEnvironmentLink(
+    #     page=results.get(Urls.NIENVIRONMENTLINK.name))
 
-    # event_source = EventBrite(page=results.get(Urls.EVENTBRITE.name))
+    event_source = EventBrite(page=results.get(Urls.EVENTBRITE.name))
 
     # Print events (for simple testing purposes).
     printer = Printer()
-    printer.print_event_list(event_source.get_events())
+    printer.print_event_list(event_source.get_events(), debug=True)
 
 
 if __name__ == '__main__':

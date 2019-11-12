@@ -9,3 +9,4 @@ class Tags(Enum):
     DIV = "div"
     P = "p"
     H4 = "h4"
+    H3 = "h3"

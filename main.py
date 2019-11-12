@@ -3,6 +3,9 @@
 Logan Czernel
 logan.czernel@ucdconnect.ie
 
+Nikita Skobelevs
+nikita.skobelevs@ucdconnect.ie
+
 TODO: FILL OUT SIMILAR DETAILS HERE (whoever else is working on this)
 
 7/11/2019
@@ -31,7 +34,11 @@ def main():
     # TODO: write unit tests.
 
     # TODO: finish nienvironmentlink scraper
+
     event_source = NiEnvironmentLink(page=results.get(Urls.NIENVIRONMENTLINK.name))
+
+    event_source = NiEnvironmentLink(
+        page=results.get(Urls.NIENVIRONMENTLINK.name))
 
     # event_source = EventBrite(page=results.get(Urls.EVENTBRITE.name))
 

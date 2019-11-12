@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aec33e9-3918-461f-b7a8-95878c770f36" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scrapers/nienvironmentlink.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/scrapers/nienvironmentlink.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tags.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -13,8 +13,7 @@ class Printer:
         if debug:
             print("Title, Date, Link, Scope")
         else:
-            print("{:^85} | {:^20}\n{:85} | {:20}".format(
-                "Event Name", "Event Date", "", ""))
+            print("{:^12}| {}\n{:^12}|".format("Date", "Title", ""))
 
     def print_event_list(self, events, debug=False):
         """
@@ -26,10 +25,10 @@ class Printer:
 
         self._print_first(debug)
 
-        for event in events:
+        for index, event in enumerate(events):
             if debug:
-                print(event.title, event.date,
-                      event.link, event.scope)
+                print("{:3}) {} | {:^13} | {}\n{}\n".format(
+                    index, event.date, event.scope, event.title, event.link))
             else:
-                print("{:^85} | {:^20}".format(
-                    event.title, event.date.isoformat()))
+                print(" {} | {} ".format(event.date.isoformat(),
+                                         event.title))

@@ -7,3 +7,4 @@ class Attrs:
     CLASS = "class"
     ID = "id"
     HREF = "href"
+    DATA_SPEC = "data-spec"

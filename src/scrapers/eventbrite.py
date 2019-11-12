@@ -35,24 +35,27 @@ class EventBrite(EventSource):
         See EventSource.get_events
         """
 
+        main_data_spec = "search-results"
         entries_class = "eds-media-card-content__content__principal"
         date_class = "eds-text-bs--fixed eds-text-color--grey-600 eds-l-mar-top-1"
         title_class = "eds-is-hidden-accessible"
         link_class = "eds-media-card-content__action-link"
 
-        entries = self.html.find_all(name=Tags.DIV.value, attrs={
-                                     Attrs.CLASS: entries_class})
+        entries = self.html.find(name=Tags.MAIN.value, attrs={
+            Attrs.DATA_SPEC: main_data_spec}).find(
+            name=Tags.DIV.value).find_all(
+            name=Tags.DIV.value, attrs={Attrs.CLASS: entries_class})
 
         for entry in entries:
-            title = entry.find(name=Tags.DIV.value, attrs={
-                Attrs.CLASS: title_class}).contents[0]
-
             event = Event.eventbrite(
-                title=title,
+                title=entry.find(name=Tags.DIV.value, attrs={
+                    Attrs.CLASS: title_class}).contents[0],
                 date=self._convert_date(entry.find(name=Tags.DIV.value, attrs={
                                         Attrs.CLASS: date_class}).contents[0]),
                 link=entry.find(name=Tags.A.value, attrs={
                                 Attrs.CLASS: link_class}).get(Attrs.HREF),
                 scope=EventScope.NATIONAL)
 
-        return set(self.events)
+            self.events.append(event)
+
+        return self.events

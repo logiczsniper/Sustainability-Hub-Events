@@ -25,7 +25,8 @@ class EventBrite(EventSource):
 
         event_datetime = datetime.strptime(date_string, "%a, %b %d, %I:%M%p")
         # Doesn't know year in case of EventBrite
-        event_datetime = event_datetime.replace(year=self.toolkit.get_year(event_datetime.month))
+        event_datetime = event_datetime.replace(
+            year=self.toolkit.get_year(event_datetime.month))
 
         return event_datetime.date()
 
@@ -39,14 +40,19 @@ class EventBrite(EventSource):
         title_class = "eds-is-hidden-accessible"
         link_class = "eds-media-card-content__action-link"
 
-        entries = self.html.find_all(name=Tags.DIV.value, attrs={Attrs.CLASS: entries_class})
+        entries = self.html.find_all(name=Tags.DIV.value, attrs={
+                                     Attrs.CLASS: entries_class})
 
         for entry in entries:
-            event = Event.eventbrite(
-                title=entry.find(name=Tags.DIV.value, attrs={Attrs.CLASS: title_class}).contents[0],
-                date=self._convert_date(entry.find(name=Tags.DIV.value, attrs={Attrs.CLASS: date_class}).contents[0]),
-                link=entry.find(name=Tags.A.value, attrs={Attrs.CLASS: link_class}).get(Attrs.HREF),
-                scope=EventScope.NATIONAL)
-            self.events.append(event)
+            title = entry.find(name=Tags.DIV.value, attrs={
+                Attrs.CLASS: title_class}).contents[0]
 
-        return self.events
+            event = Event.eventbrite(
+                title=title,
+                date=self._convert_date(entry.find(name=Tags.DIV.value, attrs={
+                                        Attrs.CLASS: date_class}).contents[0]),
+                link=entry.find(name=Tags.A.value, attrs={
+                                Attrs.CLASS: link_class}).get(Attrs.HREF),
+                scope=EventScope.NATIONAL)
+
+        return set(self.events)

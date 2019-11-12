@@ -6,12 +6,15 @@ extensible class.
 class Printer:
 
     @staticmethod
-    def _print_first():
+    def _print_first(debug=False):
         """
         Prints the first line. Should be kept hidden; no exposure needed.
         """
-        print("{:^85} | {:^20}\n{:85} | {:20}".format(
-            "Event Name", "Event Date", "", ""))
+        if debug:
+            print("Title, Date, Link, Scope")
+        else:
+            print("{:^85} | {:^20}\n{:85} | {:20}".format(
+                "Event Name", "Event Date", "", ""))
 
     def print_event_list(self, events, debug=False):
         """
@@ -21,11 +24,11 @@ class Printer:
         :type: list
         """
 
-        self._print_first()
+        self._print_first(debug)
 
         for event in events:
             if debug:
-                print(event.title, event.date, event.snippet,
+                print(event.title, event.date,
                       event.link, event.scope)
             else:
                 print("{:^85} | {:^20}".format(

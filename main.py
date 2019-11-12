@@ -37,7 +37,10 @@ def main():
 
     # Print events (for simple testing purposes).
     printer = Printer()
-    printer.print_event_list(event_source.get_events(), debug=True)
+    printer.print_event_list(event_source.get_events())
+
+    # for page in results:
+    #     print(results.get(page))
 
 
 if __name__ == '__main__':

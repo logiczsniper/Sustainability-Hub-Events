@@ -6,7 +6,7 @@ All possible events should be able to be represented using this class.
 
 class Event:
 
-    def __init__(self, title, snippet, date, link, scope):
+    def __init__(self, title, date, link, scope):
         """
         Construct an Event object.
         :param title: the primary main of the event.
@@ -22,10 +22,17 @@ class Event:
         """
 
         self.title = title
-        self.snippet = snippet
         self.date = date
         self.link = link
         self.scope = scope
+
+    def _to_object(self):
+        return {
+            "title": self.title,
+            "date": self.date,
+            "link": self.link,
+            "scope": self.scope
+        }
 
     @classmethod
     def eventbrite(cls, **kwargs):
@@ -38,7 +45,7 @@ class Event:
         :return: the Event sourced from eventbrite.
         :rtype: Event
         """
-        return Event(snippet="", **kwargs)
+        return Event(**kwargs)
 
     @classmethod
     def nienvironmentlink(cls, **kwargs):
@@ -49,4 +56,4 @@ class Event:
         :return: the Event sourced from nienvironmentlink.
         :rtype: Event
         """
-        return Event(snippet="", **kwargs)
+        return Event(**kwargs)

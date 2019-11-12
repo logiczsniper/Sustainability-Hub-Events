@@ -6,7 +6,7 @@ All possible events should be able to be represented using this class.
 
 class Event:
 
-    def __init__(self, title, date, link, scope):
+    def __init__(self, title, date, link, scope, location=None):
         """
         Construct an Event object.
         :param title: the primary main of the event.
@@ -25,6 +25,7 @@ class Event:
         self.date = date
         self.link = link
         self.scope = scope
+        self.location = location
 
     def _to_object(self):
         return {

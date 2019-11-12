@@ -35,6 +35,7 @@ class NiEnvironmentLink(EventSource):
 
         entries_class = "eventBox"
         date_class = "date"
+        location_class = "venue"
 
         entries = self.html.find_all(name=Tags.DIV.value, attrs={
                                      Attrs.CLASS: entries_class})
@@ -46,7 +47,9 @@ class NiEnvironmentLink(EventSource):
                                         Attrs.CLASS: date_class}).contents[0]),
                 link="https://www.nienvironmentlink.org/" +
                 entry.find(name=Tags.A.value).get(Attrs.HREF),
-                scope=EventScope.NATIONAL)
+                scope=EventScope.NATIONAL,
+                location=entry.find(name=Tags.H4.value,
+                                    attrs={Attrs.CLASS: location_class}).contents[0])
             self.events.append(event)
 
         return self.events

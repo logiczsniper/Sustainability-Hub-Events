@@ -27,8 +27,9 @@ class Printer:
 
         for index, event in enumerate(events):
             if debug:
-                print("{:3}) {} | {:^13} | {}\n{}\n".format(
-                    index, event.date, event.scope, event.title, event.link))
+                print("{:3}) {} | {:^13} | {}\n{}\n{}\n".format(
+                    index, event.date, event.scope, event.title,
+                    event.location, event.link))
             else:
                 print(" {} | {} ".format(event.date.isoformat(),
                                          event.title))

@@ -40,6 +40,7 @@ class EventBrite(EventSource):
         date_class = "eds-text-bs--fixed eds-text-color--grey-600 eds-l-mar-top-1"
         title_class = "eds-is-hidden-accessible"
         link_class = "eds-media-card-content__action-link"
+        location_class = "card-text--truncated__one"
 
         entries = self.html.find(name=Tags.MAIN.value, attrs={
             Attrs.DATA_SPEC: main_data_spec}).find(
@@ -54,7 +55,9 @@ class EventBrite(EventSource):
                                         Attrs.CLASS: date_class}).contents[0]),
                 link=entry.find(name=Tags.A.value, attrs={
                                 Attrs.CLASS: link_class}).get(Attrs.HREF),
-                scope=EventScope.NATIONAL)
+                scope=EventScope.NATIONAL,
+                location=entry.find(name=Tags.DIV.value,
+                                    attrs={Attrs.CLASS: location_class}).contents[0])
 
             self.events.append(event)
 

@@ -30,8 +30,10 @@ def main():
     # Temporary for development purposes.
     print(f"Time taken: {t2-t1}")
 
-    # event_source = NiEnvironmentLink(
-    #     page=results.get(Urls.NIENVIRONMENTLINK.name))
+    # TODO: check for places where exceptions may need to be handled.
+    # TODO: write unit tests.
+
+    # event_source = NiEnvironmentLink(page=results.get(Urls.NIENVIRONMENTLINK.name))
 
     event_source = EventBrite(page=results.get(Urls.EVENTBRITE.name))
 

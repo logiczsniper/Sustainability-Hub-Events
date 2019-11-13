@@ -48,7 +48,7 @@ class EventBrite(EventSource):
             name=Tags.DIV.value, attrs={Attrs.CLASS: entries_class})
 
         for entry in entries:
-            event = Event.eventbrite(
+            event = Event(
                 title=entry.find(name=Tags.DIV.value, attrs={
                     Attrs.CLASS: title_class}).contents[0],
                 date=self._convert_date(entry.find(name=Tags.DIV.value, attrs={

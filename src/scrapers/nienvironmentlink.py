@@ -41,7 +41,7 @@ class NiEnvironmentLink(EventSource):
                                      Attrs.CLASS: entries_class})
 
         for entry in entries:
-            event = Event.nienvironmentlink(
+            event = Event(
                 title=entry.find(Tags.H3.value).contents[0].text,
                 date=self._convert_date(entry.find(name=Tags.H4.value, attrs={
                                         Attrs.CLASS: date_class}).contents[0]),

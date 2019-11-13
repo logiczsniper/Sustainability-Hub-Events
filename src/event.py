@@ -32,29 +32,30 @@ class Event:
             "title": self.title,
             "date": self.date,
             "link": self.link,
-            "scope": self.scope
+            "scope": self.scope,
+            "location": self.location
         }
 
-    @classmethod
-    def eventbrite(cls, **kwargs):
-        """
-        eventbrite does not have a snippet on events. In order to retrieve this information, the link would have to be
-        found and then that page requested for each event. This would take way too long. Thus, snippet="" for
-        every eventbrite event.
-        :param kwargs: the other arguments to build the Event.
-        :type: dict
-        :return: the Event sourced from eventbrite.
-        :rtype: Event
-        """
-        return Event(**kwargs)
+    # @classmethod
+    # def eventbrite(cls, **kwargs):
+    #     """
+    #     eventbrite does not have a snippet on events. In order to retrieve this information, the link would have to be
+    #     found and then that page requested for each event. This would take way too long. Thus, snippet="" for
+    #     every eventbrite event.
+    #     :param kwargs: the other arguments to build the Event.
+    #     :type: dict
+    #     :return: the Event sourced from eventbrite.
+    #     :rtype: Event
+    #     """
+    #     return Event(**kwargs)
 
-    @classmethod
-    def nienvironmentlink(cls, **kwargs):
-        """
-        nienvironmentlink does not have a snippet on events.
-        :param kwargs: the other arguments to build the Event.
-        :type: dict
-        :return: the Event sourced from nienvironmentlink.
-        :rtype: Event
-        """
-        return Event(**kwargs)
+    # @classmethod
+    # def nienvironmentlink(cls, **kwargs):
+    #     """
+    #     nienvironmentlink does not have a snippet on events.
+    #     :param kwargs: the other arguments to build the Event.
+    #     :type: dict
+    #     :return: the Event sourced from nienvironmentlink.
+    #     :rtype: Event
+    #     """
+    #     return Event(**kwargs)

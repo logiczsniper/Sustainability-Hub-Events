@@ -32,7 +32,6 @@ class Fetcher:
         results = list()
 
         for url in Urls:
-
             value = url.value
             request = self.session.get(value)
             results.append(request.result())

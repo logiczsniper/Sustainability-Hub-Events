@@ -52,6 +52,9 @@ class Fetcher:
 
         for url in urls:
             request = self.session.get(url)
+        for url in Urls:
+            value = url.value
+            request = self.session.get(value)
             results.append(request.result())
 
         output = dict(zip([url.name for url in Urls], results))

@@ -23,6 +23,12 @@ class Fetcher:
         self.pages_packet = pages_packet
 
     def _format_urls(self):
+        """
+        Using the mapping functions to create all variants of the urls, create a list of all url variants.
+        :return: all url variants.
+        :rtype: list
+        """
+
         output = list()
 
         for url in Urls:
@@ -52,9 +58,6 @@ class Fetcher:
 
         for url in urls:
             request = self.session.get(url)
-        for url in Urls:
-            value = url.value
-            request = self.session.get(value)
             results.append(request.result())
 
         output = dict(zip([url.name for url in Urls], results))

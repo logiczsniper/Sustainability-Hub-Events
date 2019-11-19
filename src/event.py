@@ -11,8 +11,6 @@ class Event:
         Construct an Event object.
         :param title: the primary main of the event.
         :type: str
-        :param snippet: first 50-ish words of the article giving a vague idea of the story.
-        :type: str
         :param date: the time of the year the event is.
         :type: datetime.date
         :param link: a hyperlink to more details (a dedicated page) about the event.
@@ -27,6 +25,9 @@ class Event:
         self.scope = scope
         self.location = location
 
+    def __repr__(self):
+        return " {} | {} ".format(self.date.isoformat(), self.title)
+
     def _to_object(self):
         return {
             "title": self.title,
@@ -35,27 +36,3 @@ class Event:
             "scope": self.scope,
             "location": self.location
         }
-
-    # @classmethod
-    # def eventbrite(cls, **kwargs):
-    #     """
-    #     eventbrite does not have a snippet on events. In order to retrieve this information, the link would have to be
-    #     found and then that page requested for each event. This would take way too long. Thus, snippet="" for
-    #     every eventbrite event.
-    #     :param kwargs: the other arguments to build the Event.
-    #     :type: dict
-    #     :return: the Event sourced from eventbrite.
-    #     :rtype: Event
-    #     """
-    #     return Event(**kwargs)
-
-    # @classmethod
-    # def nienvironmentlink(cls, **kwargs):
-    #     """
-    #     nienvironmentlink does not have a snippet on events.
-    #     :param kwargs: the other arguments to build the Event.
-    #     :type: dict
-    #     :return: the Event sourced from nienvironmentlink.
-    #     :rtype: Event
-    #     """
-    #     return Event(**kwargs)

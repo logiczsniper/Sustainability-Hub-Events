@@ -3,11 +3,11 @@
 All event sources should be represented using this class.
 """
 from abc import ABC, abstractmethod
+from datetime import datetime
 
 from bs4 import BeautifulSoup
 from bs4.element import SoupStrainer
 
-from src.dateToolkit import DateToolkit
 from src.tags import Tags
 
 
@@ -26,7 +26,6 @@ class EventSource(ABC):
         self.page = page
         self.html = BeautifulSoup(
             self.page.content, "html.parser", parse_only=strainer)
-        self.toolkit = DateToolkit()
         self.events = list()
 
     @abstractmethod
@@ -56,3 +55,19 @@ class EventSource(ABC):
         :rtype: str
         """
         pass
+
+    @staticmethod
+    def get_year(month):
+        """
+        If the month of the event is between January and current month, it is next year.
+        Otherwise, it is this year.
+        :param month: the month of the event.
+        :type: int
+        :return: the year of the event.
+        :rtype: int
+        """
+        current_month = datetime.now().month
+
+        if 0 <= month < current_month:
+            return datetime.now().year + 1
+        return datetime.now().year

@@ -30,11 +30,13 @@ class EventBrite(EventSource):
         """
         See EventSource._convert_date
         """
+        if "+" in date_string:
+            date_string = date_string.split("+")[0][:-1]
 
         event_datetime = datetime.strptime(date_string, "%a, %b %d, %I:%M%p")
         # Doesn't know year in case of EventBrite
         event_datetime = event_datetime.replace(
-            year=self.toolkit.get_year(event_datetime.month))
+            year=self.get_year(event_datetime.month))
 
         return event_datetime.date()
 
@@ -56,16 +58,17 @@ class EventBrite(EventSource):
             name=Tags.DIV.value, attrs={Attrs.CLASS: entries_class})
 
         for entry in entries:
+            location_div = entry.find(name=Tags.DIV.value,
+                                      attrs={Attrs.CLASS: location_class})
             event = Event(
                 title=entry.find(name=Tags.DIV.value, attrs={
                     Attrs.CLASS: title_class}).contents[0],
                 date=self._convert_date(entry.find(name=Tags.DIV.value, attrs={
-                                        Attrs.CLASS: date_class}).contents[0]),
+                    Attrs.CLASS: date_class}).contents[0]),
                 link=entry.find(name=Tags.A.value, attrs={
-                                Attrs.CLASS: link_class}).get(Attrs.HREF),
+                    Attrs.CLASS: link_class}).get(Attrs.HREF),
                 scope=EventScope.NATIONAL,
-                location=entry.find(name=Tags.DIV.value,
-                                    attrs={Attrs.CLASS: location_class}).contents[0])
+                location=location_div.contents[0] if location_div is not None else None)
 
             self.events.append(event)
 

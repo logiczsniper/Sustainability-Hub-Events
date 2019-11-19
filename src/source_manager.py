@@ -26,14 +26,12 @@ class SourceManager:
         return scrapers
 
     def _events(self):
+        """
+        Get unfiltered events from all scrapers.
+        :rtype: list
+        """
 
-        output = list()
-
-        for scraper in self.scrapers:
-
-            output += scraper.get_events()
-
-        return output
+        return [scraper.get_events() for scraper in self.scrapers]
 
     def all_events(self):
         """

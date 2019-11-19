@@ -1,14 +1,14 @@
 """ Scraping from nienvironmentlink.
 
 """
-from datetime import date, datetime
-import calendar
+from datetime import datetime
 
 from src.attributes import Attrs
 from src.event import Event
 from src.eventScopes import EventScope
 from src.eventSource import EventSource
 from src.tags import Tags
+from src.urls import Urls
 
 
 class NiEnvironmentLink(EventSource):
@@ -18,6 +18,13 @@ class NiEnvironmentLink(EventSource):
 
     def __str__(self):
         return "nienvironmentlink"
+
+    @staticmethod
+    def get_url():
+        """
+        See EventSource.get_url
+        """
+        return Urls.EVENTBRITE.name
 
     def _convert_date(self, date_string):
         """

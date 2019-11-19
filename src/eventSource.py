@@ -48,3 +48,11 @@ class EventSource(ABC):
         :rtype: list
         """
         pass
+
+    @staticmethod
+    def get_url():
+        """
+        :return: the url of this event source.
+        :rtype: str
+        """
+        pass

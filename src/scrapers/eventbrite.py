@@ -8,6 +8,7 @@ from src.event import Event
 from src.eventScopes import EventScope
 from src.eventSource import EventSource
 from src.tags import Tags
+from src.urls import Urls
 
 
 class EventBrite(EventSource):
@@ -17,6 +18,13 @@ class EventBrite(EventSource):
 
     def __str__(self):
         return "eventbrite"
+
+    @staticmethod
+    def get_url():
+        """
+        See EventSource.get_url
+        """
+        return Urls.EVENTBRITE.name
 
     def _convert_date(self, date_string):
         """
